@@ -2,7 +2,7 @@
     "name": "rune-language",
     "displayName": "Rune Language Support",
     "description": "Language support for Rune, including syntax highlighting, file recognition, snippets and editor integration for .rune source files.",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "publisher": "MateusSoaresL",
     "icon": "./images/rune-dark-light.png",
     "engines": {
@@ -57,7 +57,14 @@
                 "language": "rune",
                 "path": "./snippets/rune.json"
             }
-        ]
+        ],
+        "configurationDefaults": {
+            "[rune]": {
+                "editor.snippetSuggestions": "top",
+                "editor.wordBasedSuggestions": "off",
+                "editor.suggest.showWords": false
+            }
+        }
     },
     "devDependencies": {
         "@vscode/vsce": "^4.0.0"
