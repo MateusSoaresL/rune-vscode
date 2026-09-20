@@ -1,0 +1,198 @@
+{
+    "name": "Rune",
+    "scopeName": "source.rune",
+
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#functions"
+        },
+        {
+            "include": "#variables"
+        },
+        {
+            "include": "#types"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#booleans"
+        },
+        {
+            "include": "#numbers"
+        },
+        {
+            "include": "#builtins"
+        },
+        {
+            "include": "#operators"
+        }
+    ],
+
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.documentation.rune",
+                    "match": "///.*$"
+                },
+                {
+                    "name": "comment.line.double-slash.rune",
+                    "match": "//.*$"
+                },
+                {
+                    "name": "comment.block.rune",
+                    "begin": "/\\*",
+                    "end": "\\*/"
+                }
+            ]
+        },
+
+        "strings": {
+            "patterns": [
+                {
+                    "name": "string.quoted.double.rune",
+                    "begin": "\"",
+                    "end": "\"",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.rune",
+                            "match": "\\\\[ntr\\\\\"]"
+                        }
+                    ]
+                },
+                {
+                    "name": "string.quoted.single.rune",
+                    "begin": "'",
+                    "end": "'",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.rune",
+                            "match": "\\\\[ntr\\\\']"
+                        }
+                    ]
+                }
+            ]
+        },
+
+        "functions": {
+            "patterns": [
+                {
+                    "match": "\\b(function)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.declaration.function.rune"
+                        },
+                        "2": {
+                            "name": "entity.name.function.rune"
+                        }
+                    }
+                },
+                {
+                    "name": "entity.name.function.call.rune",
+                    "match": "\\b[A-Za-z_][A-Za-z0-9_]*(?=\\s*\\()"
+                }
+            ]
+        },
+
+        "variables": {
+            "patterns": [
+                {
+                    "match": "\\b(let|var)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.declaration.variable.rune"
+                        },
+                        "2": {
+                            "name": "variable.other.readwrite.rune"
+                        }
+                    }
+                }
+            ]
+        },
+
+        "types": {
+            "patterns": [
+                {
+                    "name": "storage.type.rune",
+                    "match": "\\b(i8|i16|i32|i64|u8|u16|u32|u64|f16|f32|f64|string|char|bool|void)\\b"
+                }
+            ]
+        },
+
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.conditional.rune",
+                    "match": "\\b(if|else)\\b"
+                },
+                {
+                    "name": "keyword.control.loop.rune",
+                    "match": "\\b(while|for|break|continue)\\b"
+                },
+                {
+                    "name": "keyword.control.return.rune",
+                    "match": "\\breturn\\b"
+                }
+            ]
+        },
+
+        "booleans": {
+            "patterns": [
+                {
+                    "name": "constant.language.boolean.rune",
+                    "match": "\\b(true|false)\\b"
+                }
+            ]
+        },
+
+        "numbers": {
+            "patterns": [
+                {
+                    "name": "constant.numeric.float.rune",
+                    "match": "\\b[0-9]+\\.[0-9]+\\b"
+                },
+                {
+                    "name": "constant.numeric.integer.rune",
+                    "match": "\\b[0-9]+\\b"
+                }
+            ]
+        },
+
+        "builtins": {
+            "patterns": [
+                {
+                    "name": "support.function.builtin.rune",
+                    "match": "\\b(print|println)\\b"
+                }
+            ]
+        },
+
+        "operators": {
+            "patterns": [
+                {
+                    "name": "keyword.operator.arithmetic.rune",
+                    "match": "(\\+|-|\\*|/|%)"
+                },
+                {
+                    "name": "keyword.operator.comparison.rune",
+                    "match": "(==|!=|<=|>=|<|>)"
+                },
+                {
+                    "name": "keyword.operator.logical.rune",
+                    "match": "(&&|\\|\\||!)"
+                },
+                {
+                    "name": "keyword.operator.assignment.rune",
+                    "match": "="
+                }
+            ]
+        }
+    }
+}
