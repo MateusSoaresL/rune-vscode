@@ -1,8 +1,8 @@
 {
     "name": "rune-language",
     "displayName": "Rune Language Support",
-    "description": "Language support for Rune, including syntax highlighting, file recognition and editor integration for .rune source files.",
-    "version": "0.1.0",
+    "description": "Language support for Rune, including syntax highlighting, file recognition, snippets and editor integration for .rune source files.",
+    "version": "0.1.1",
     "publisher": "MateusSoaresL",
     "icon": "./images/rune-dark-light.png",
     "engines": {
@@ -16,16 +16,17 @@
         "programming language",
         "language support",
         "syntax highlighting",
+        "snippets",
         "rune language"
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/MateusSoaresL/rune"
+        "url": "https://github.com/MateusSoaresL/rune-vscode"
     },
     "bugs": {
-        "url": "https://github.com/MateusSoaresL/rune/issues"
+        "url": "https://github.com/MateusSoaresL/rune-vscode/issues"
     },
-    "homepage": "https://github.com/MateusSoaresL/rune",
+    "homepage": "https://github.com/MateusSoaresL/rune-vscode",
     "contributes": {
         "languages": [
             {
@@ -50,6 +51,15 @@
                 "scopeName": "source.rune",
                 "path": "./syntaxes/rune.tmLanguage.json"
             }
+        ],
+        "snippets": [
+            {
+                "language": "rune",
+                "path": "./snippets/rune.json"
+            }
         ]
+    },
+    "devDependencies": {
+        "@vscode/vsce": "^4.0.0"
     }
 }
